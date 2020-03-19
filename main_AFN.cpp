@@ -64,17 +64,17 @@ int main()
             }
 
     }
-    for(i=0; i<=n; i++)
-    {
-        for(j=0; j<=n; j++)
-        {
-
-            for(l=0; l<=n; l++)
-                cout<<m[i][j][l]<<" ";
-            cout<<endl;
-        }
-        cout<<endl;
-    }
+    //for(i=0; i<=n; i++)
+//    {
+//        for(j=0; j<=n; j++)
+//        {
+//
+//            for(l=0; l<=n; l++)
+//                cout<<m[i][j][l]<<" ";
+//            cout<<endl;
+//        }
+//        cout<<endl;
+//    }
     fin>>nr;
     string cuv[nr];
     string a;
@@ -83,10 +83,7 @@ int main()
         fin>>a;
         cuv[i]=a;
     }
-    for(i=0; i<nr; i++)
-        fout<<cuv[i]<<endl;
 
-    fout<<endl;
     int ok;
     for(i=0; i<nr; i++)
     {
@@ -96,78 +93,93 @@ int main()
         j=0;
         c.push(-1);
         while(true)
-        {   cout<<"suint aici";
-            if(j>act.size())
+        {
+           // cout<<"suint aici";
+            if(j==act.size())
             {
-                cout<<"--------IES-----------";
+               // cout<<"--------IES-----------";
                 break;
             }
             int b=c.front();
             c.pop();
-            cout<<"b este "<<b<<endl;
+            //cout<<"b este "<<b<<endl;
             int a;
             if(b!=-1)
-            { //continue;
-                ok=0;
-                cout<<"J este "<<j<<" iar b este "<<b<<endl;
-                cout<<"ok inainte de actiune "<<ok<<endl;
+            {
+                //continue;
+               // ok=0;
+                //cout<<"J este "<<j<<" iar b este "<<b<<endl;
+                //cout<<"ok inainte de actiune "<<ok<<endl;
                 for(l=0; l<=n; l++)
                     for(a=0; a<=n; a++)
-                    {//cout<<"***"<<"j "<<j<<" act[j] "<<act[j]<<" dif "<<act[j]-m[b][l][a]<<" l ";
-                           //cout<<l<<" "<<endl;
+                    {
+                        //cout<<"***"<<"j "<<j<<" act[j] "<<act[j]<<" dif "<<act[j]-m[b][l][a]<<" l ";
+                        //cout<<l<<" "<<endl;
                         if(act[j]-m[b][l][a]==48)
-                        {  cout<<" act[j] "<<act[j]<<" dif "<<act[j]-m[b][l][a]<<" l ";
-                            cout<<l<<" "<<endl;
+                        {
+                            //cout<<" act[j] "<<act[j]<<" dif "<<act[j]-m[b][l][a]<<" l ";
+                            //cout<<l<<" "<<endl;
                             ok=1;
                             c.push(l);
 
                         }
                     }
-                    cout<<endl<<"ok dupa actiune "<<ok<<endl;
+               // cout<<endl<<"ok dupa actiune "<<ok<<endl;
             }
-            else
+                        else
             {
                 if(ok!=1)
-                    break;
+                   {
+//cout<<"???"<<endl;
+                    break; }
                 else
-                {
+                {   //cout<<"!!!"<<endl;
                     c.push(-1);
+                    ok=0;
                     j++;
                 }
 
             }
 
-        cout<<"j este "<<j<<endl;
-        } // end while
 
-        if(j<=act.size())
-        {
-            cout<<"sunt aiici si am iesit prost";
-        }
-    cout<<"ok este "<<ok<<endl;
-       // if(ok==1)
-        //{
-            int gasit=0;
-            while(c.empty()==0)
-            {
-                int f=c.front();
 
-                cout<<f<<endl;
-                if(fi[f]==1)
-                    gasit=1;
-                cout<<"VARFUL "<<f<<endl;
-                c.pop();
 
-            }
-            if(gasit==1)
-                {cout<<"DA"<<endl; fout<<"DA"<<endl;}
-            else
-                {cout<<"NU"<<endl; fout<<"NU"<<endl;}
-        //}
-       // else {cout<<"NU1"<<endl; fout<<"NU1"<<endl;}
+        //cout<<"j este "<<j<<endl;
+    } // end while
+
+//    if(j<act.size())
+//    {
+//        //cout<<"sunt aiici si am iesit prost";
+//    }
+//    cout<<"ok este "<<ok<<endl;
+    // if(ok==1)
+    //{
+    int gasit=0;
+    while(c.empty()==0)
+    {
+        int f=c.front();
+
+        if(fi[f]==1)
+            gasit=1;
+       // cout<<"VARFUL "<<f<<endl;
+        c.pop();
+
     }
+    if(gasit==1)
+    {
+        //cout<<"DA"<<endl;
+        fout<<"DA"<<endl;
+    }
+    else
+    {
+        //cout<<"NU"<<endl;
+        fout<<"NU"<<endl;
+    }
+    //}
+    // else {cout<<"NU1"<<endl; fout<<"NU1"<<endl;}
+}
 
-    fin.close();
-    fout.close();
-    return 0;
+fin.close();
+fout.close();
+return 0;
 }
