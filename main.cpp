@@ -4,9 +4,10 @@
 #include <bits/stdc++.h>
 #include <string.h>
 #include <string>
+#include <queue>
 using namespace std;
-ifstream fin("AFD.in");
-ofstream fout("AFD.out");
+ifstream fin("AFN.in");
+ofstream fout("AFN.out");
 int main()
 {
     int n;
@@ -63,17 +64,17 @@ int main()
             }
 
     }
-//    for(i=0; i<=n; i++)
-//    {
-//        for(j=0; j<=n; j++)
-//        {
-//
-//            for(l=0; l<=n; l++)
-//                cout<<m[i][j][l]<<" ";
-//            cout<<endl;
-//        }
-//        cout<<endl;
-//    }
+    for(i=0; i<=n; i++)
+    {
+        for(j=0; j<=n; j++)
+        {
+
+            for(l=0; l<=n; l++)
+                cout<<m[i][j][l]<<" ";
+            cout<<endl;
+        }
+        cout<<endl;
+    }
     fin>>nr;
     string cuv[nr];
     string a;
@@ -82,46 +83,89 @@ int main()
         fin>>a;
         cuv[i]=a;
     }
-//    for(i=0; i<nr; i++)
-//        fout<<cuv[i]<<endl;
-//
-//    fout<<endl;
-    int conditie;
-    for(j=0; j<nr; j++)
+    for(i=0; i<nr; i++)
+        fout<<cuv[i]<<endl;
+
+    fout<<endl;
+    int ok;
+    for(i=0; i<nr; i++)
     {
-        string cuvact=cuv[j];
-        int index=0;
-        for(i=0; i<cuvact.size(); i++)
-        {
-            char l=cuvact[i];
-            conditie=0;
-
-            for(int a=0; a<=n&&conditie==0; a++)
-                for(int b=0; b<=n; b++)
-                {
-                    if(l-m[index][a][b]==48)
-                    {
-                        //cout<<"diferenta "<<l-m[index][a][b]<<endl<<"index "<<index<<endl<<"a "<<a<<endl;
-                        conditie=1;
-                        index=a;
-                        break;}
-
-            }
-            if(conditie==0)
+        queue <int> c;
+        string act=cuv[i];
+        c.push(0);
+        j=0;
+        c.push(-1);
+        while(true)
+        {   cout<<"suint aici";
+            if(j>act.size())
             {
-                fout<<"NU"<<endl;
+                cout<<"--------IES-----------";
                 break;
             }
+            int b=c.front();
+            c.pop();
+            cout<<"b este "<<b<<endl;
+            int a;
+            if(b!=-1)
+            { //continue;
+                ok=0;
+                cout<<"J este "<<j<<" iar b este "<<b<<endl;
+                cout<<"ok inainte de actiune "<<ok<<endl;
+                for(l=0; l<=n; l++)
+                    for(a=0; a<=n; a++)
+                    {//cout<<"***"<<"j "<<j<<" act[j] "<<act[j]<<" dif "<<act[j]-m[b][l][a]<<" l ";
+                           //cout<<l<<" "<<endl;
+                        if(act[j]-m[b][l][a]==48)
+                        {  cout<<" act[j] "<<act[j]<<" dif "<<act[j]-m[b][l][a]<<" l ";
+                            cout<<l<<" "<<endl;
+                            ok=1;
+                            c.push(l);
+
+                        }
+                    }
+                    cout<<endl<<"ok dupa actiune "<<ok<<endl;
+            }
+            else
+            {
+                if(ok!=1)
+                    break;
+                else
+                {
+                    c.push(-1);
+                    j++;
+                }
+
+            }
+
+        cout<<"j este "<<j<<endl;
+        } // end while
+
+        if(j<=act.size())
+        {
+            cout<<"sunt aiici si am iesit prost";
         }
-        if(conditie==1&& fi[index]==1)
-            {fout<<"DA"<<endl; cout<<index<<fi[index];}
-        else
-            if(conditie==1)
-            fout<<"NU"<<endl;
+    cout<<"ok este "<<ok<<endl;
+       // if(ok==1)
+        //{
+            int gasit=0;
+            while(c.empty()==0)
+            {
+                int f=c.front();
 
+                cout<<f<<endl;
+                if(fi[f]==1)
+                    gasit=1;
+                cout<<"VARFUL "<<f<<endl;
+                c.pop();
+
+            }
+            if(gasit==1)
+                {cout<<"DA"<<endl; fout<<"DA"<<endl;}
+            else
+                {cout<<"NU"<<endl; fout<<"NU"<<endl;}
+        //}
+       // else {cout<<"NU1"<<endl; fout<<"NU1"<<endl;}
     }
-
-
 
     fin.close();
     fout.close();
