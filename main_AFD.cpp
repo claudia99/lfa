@@ -11,8 +11,8 @@ int main()
 {
     int n;
     fin>>n;
-    char alf[1000];
-    long int m[20][20][20];
+    //char alf[1000];
+    long int m[30][30][30];
     int i,j,k,l;
 
     for(i=0; i<=n; i++)
@@ -24,27 +24,17 @@ int main()
 
     // n - indicele maxim de stari ale automatului ie n+1 stari
 
-
+    string alf,aux;
     int fi[n+1];
     for(i=0; i<=n; i++)
         fin>>fi[i];
-    fin>>alf;
+    getline(fin,aux);// iau entrer-ul din buffer
+    getline(fin,alf);
+    //cout<<alf;
+    //fin>>alf;
     // k - nr de tranzitii
-
     fin>>k;
     int start,stop;
-//    for(i=0; i<=n; i++)
-//    {
-//        for(j=0; j<=n; j++)
-//        {
-//
-//            for(l=0; l<=n; l++)
-//                cout<<m[i][j][l]<<" ";
-//            cout<<endl;
-//        }
-//        cout<<endl;
-//    }
-
     for(i=0; i<k; i++)
     {
         int ok=0;
@@ -63,17 +53,7 @@ int main()
             }
 
     }
-//    for(i=0; i<=n; i++)
-//    {
-//        for(j=0; j<=n; j++)
-//        {
-//
-//            for(l=0; l<=n; l++)
-//                cout<<m[i][j][l]<<" ";
-//            cout<<endl;
-//        }
-//        cout<<endl;
-//    }
+
     fin>>nr;
     string cuv[nr];
     string a;
@@ -82,10 +62,6 @@ int main()
         fin>>a;
         cuv[i]=a;
     }
-//    for(i=0; i<nr; i++)
-//        fout<<cuv[i]<<endl;
-//
-//    fout<<endl;
     int conditie;
     for(j=0; j<nr; j++)
     {
@@ -101,7 +77,6 @@ int main()
                 {
                     if(l-m[index][a][b]==48)
                     {
-                        //cout<<"diferenta "<<l-m[index][a][b]<<endl<<"index "<<index<<endl<<"a "<<a<<endl;
                         conditie=1;
                         index=a;
                         break;}
@@ -114,15 +89,12 @@ int main()
             }
         }
         if(conditie==1&& fi[index]==1)
-            {fout<<"DA"<<endl; cout<<index<<fi[index];}
+            {fout<<"DA"<<endl; }
         else
             if(conditie==1)
             fout<<"NU"<<endl;
 
     }
-
-
-
     fin.close();
     fout.close();
     return 0;
