@@ -28,7 +28,7 @@ int main()
     int fi[n+1];
     for(i=0; i<=n; i++)
         fin>>fi[i];
-    getline(fin,aux);// iau entrer-ul din buffer
+    getline(fin,aux);// iau enter-ul din buffer
     getline(fin,alf);
     //cout<<alf;
     //fin>>alf;
