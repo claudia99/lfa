@@ -12,8 +12,8 @@ int main()
 {
     int n;
     fin>>n;
-    char alf[1000];
-    long int m[20][20][20];
+    string alf,aux;
+    long int m[30][30][30];
     int i,j,k,l;
 
     for(i=0; i<=n; i++)
@@ -29,7 +29,8 @@ int main()
     int fi[n+1];
     for(i=0; i<=n; i++)
         fin>>fi[i];
-    fin>>alf;
+    getline(fin,aux);
+    getline(fin,alf);
     // k - nr de tranzitii
 
     fin>>k;
