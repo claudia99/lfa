@@ -84,15 +84,15 @@ int main()
             }
             if(conditie==0)
             {
-                fout<<"NU"<<endl;
+                fout<<"0"<<endl;
                 break;
             }
         }
         if(conditie==1&& fi[index]==1)
-            {fout<<"DA"<<endl; }
+            {fout<<"1"<<endl; }
         else
             if(conditie==1)
-            fout<<"NU"<<endl;
+            fout<<"0"<<endl;
 
     }
     fin.close();
