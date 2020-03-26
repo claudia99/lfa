@@ -169,12 +169,12 @@ int main()
     if(gasit==1)
     {
         //cout<<"DA"<<endl;
-        fout<<"DA"<<endl;
+        fout<<"1"<<endl;
     }
     else
     {
         //cout<<"NU"<<endl;
-        fout<<"NU"<<endl;
+        fout<<"0"<<endl;
     }
     //}
     // else {cout<<"NU1"<<endl; fout<<"NU1"<<endl;}
