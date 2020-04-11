@@ -8,9 +8,7 @@
 using namespace std;
 ifstream fin("AFNlambda.in");
 ofstream fout("AFNlambda.out");
-//queue <int> stari;
 int n;
-
 string alf,aux;
 long int m[30][30][30];
 int i,j,k,l;
