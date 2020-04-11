@@ -6,8 +6,8 @@
 #include <string>
 #include <queue>
 using namespace std;
-ifstream fin("AFD.in");
-ofstream fout("AFD.out");
+ifstream fin("AFNlambda.in");
+ofstream fout("AFNlambda.out");
 //queue <int> stari;
 int n;
 
@@ -47,8 +47,8 @@ void inchidere(int stare, queue<int> &stari)
                     stari.push(j);
                     aux.push(j);
                 }
-    cout<<"aux:";
-    afisqueue(aux);
+    //cout<<"aux:";
+    //afisqueue(aux);
     while(aux.empty()==0)
     {
         int ll=aux.front();
@@ -92,13 +92,13 @@ void inchidere_stari(queue<int>&c)
     while(aux.empty()==0)
     {
         int q=aux.front();
-        cout<<"fac inchiderea lui "<<q<<endl;
+       // cout<<"fac inchiderea lui "<<q<<endl;
         aux.pop();
         inchidere(q,nou);
         // nou.push(q);
 
-        cout<<"in functie"<<endl;
-        afisqueue(nou);
+        //cout<<"in functie"<<endl;
+        //afisqueue(nou);
     }
     c=nou;
 }
@@ -119,8 +119,6 @@ int main()
     int fi[n+1];
     for(i=0; i<=n; i++)
         fin>>fi[i];
-    for(i=0; i<=n; i++)
-        cout<<"indicele "<<i<<" si valoarea "<<fi[i]<<endl;
     getline(fin,aux);
     getline(fin,alf);
     // k - nr de tranzitii
@@ -157,17 +155,17 @@ int main()
             }
 
     }
-    for(i=0; i<=n; i++)
-    {
-        for(j=0; j<=n; j++)
-        {
-
-            for(l=0; l<=n; l++)
-                cout<<m[i][j][l]<<" ";
-            cout<<endl;
-        }
-        cout<<endl;
-    }
+//    for(i=0; i<=n; i++)
+//    {
+//        for(j=0; j<=n; j++)
+//        {
+//
+//            for(l=0; l<=n; l++)
+//                cout<<m[i][j][l]<<" ";
+//            cout<<endl;
+//        }
+//        cout<<endl;
+//    }
     fin>>nr;
     string cuv[nr];
     string a;
@@ -184,21 +182,21 @@ int main()
 
         for(int y=0; y<act.size(); y++)
         {
-            cout<<endl;
-            cout<<endl<<"Initial: ";
-            afisqueue(stari);
+            //cout<<endl;
+            //cout<<endl<<"Initial: ";
+            //afisqueue(stari);
             // cout<<endl;
-            cout<<endl<<"litera ";
-            cout<<act[y];
+            //cout<<endl<<"litera ";
+            //cout<<act[y];
             caut(act[y],stari);
-            cout<<endl<<"Dupa cautare: ";
-            afisqueue(stari);
-            cout<<endl<<"Dupa inchidere: ";
+            //cout<<endl<<"Dupa cautare: ";
+           // afisqueue(stari);
+            //cout<<endl<<"Dupa inchidere: ";
             inchidere_stari(stari);
-            cout<<endl;
-            afisqueue(stari);
+            //cout<<endl;
+            //afisqueue(stari);
         }
-        cout<<endl<<"VERDICT IULIA ALBU: ";
+
         //while
         int ok=0;
         ///verific daca e vreo stare finala
@@ -211,9 +209,13 @@ int main()
 
         }
         if(ok==0)
-            cout<<"NUU";
+            { //cout<<"NUU";
+             fout<<"0"<<endl;}
         else
-            cout<<"DAA";
+            {//cout<<"DAA";
+             fout<<"1"<<endl;}
     }
+    fin.close();
+    fout.close();
     return 0;
 }
