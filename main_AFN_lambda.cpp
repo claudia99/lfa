@@ -6,7 +6,7 @@
 #include <string>
 #include <queue>
 using namespace std;
-ifstream fin("AFNlambda.in");
+ifstream fin("AFNlambda.in"); /// am pus * in loc de lambda
 ofstream fout("AFNlambda.out");
 int n;
 string alf,aux;
